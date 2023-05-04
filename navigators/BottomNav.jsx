@@ -6,7 +6,7 @@ import Settings from "../screens/Settings";
 import Icon from "react-native-vector-icons/Ionicons";
 import { ROUTES, COLORS } from "../constants";
 import botIcon from "../assets/titi_happy.gif";
-import { Image } from "react-native";
+import { Image, View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -50,10 +50,19 @@ function BottomNav() {
           headerTitle: "Titi Assistant",
           headerTitleAlign: "left",
           headerLeft: () => (
-            <Image
-              style={{ width: 40, height: 40, marginLeft: 20 }}
-              source={botIcon}
-            />
+            <View
+              style={{
+                backgroundColor: COLORS.blue[100],
+                width: 38,
+                height: 38,
+                marginLeft: 20,
+                borderRadius: 50,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image style={{ width: 35, height: 35 }} source={botIcon} />
+            </View>
           ),
         }}
       />

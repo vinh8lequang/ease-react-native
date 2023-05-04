@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
   textBreathe: {
     fontSize: 12,
-    color: COLORS.blue[500],
+    color: COLORS.purple[500],
   },
 });
 

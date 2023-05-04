@@ -1,110 +1,19 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Text, StyleSheet, View } from "react-native";
-import { GiftedChat, Bubble } from "react-native-gifted-chat";
-import { COLORS } from "../constants";
-import botIcon from "../assets/titi_static/neutral2.png";
+import { GiftedChat, Bubble, Send } from "react-native-gifted-chat";
+import { COLORS, MOCKDATA2 } from "../constants";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 function Chatbot() {
   const [messages, setMessages] = useState([]);
 
+  //to fix the gap between the keyboard and the chatbox
+  const tabBarHeight = useBottomTabBarHeight();
+
   useEffect(() => {
-    setMessages([
-      {
-        _id: 10,
-        text: "Hello world",
-        createdAt: new Date(),
-        user: {
-          _id: 1,
-          name: "User",
-        },
-      },
-      {
-        _id: 9,
-        text: "Hello world",
-        createdAt: new Date(),
-        user: {
-          _id: 1,
-          name: "User",
-        },
-      },
-      {
-        _id: 8,
-        text: "Hello world",
-        createdAt: new Date(),
-        user: {
-          _id: 1,
-          name: "User",
-        },
-      },
-      {
-        _id: 7,
-        text: "Hello world",
-        createdAt: new Date(),
-        user: {
-          _id: 1,
-          name: "User",
-        },
-      },
-      {
-        _id: 6,
-        text: "Hello developer 1",
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: "React Native",
-          avatar: botIcon,
-        },
-      },
-      {
-        _id: 5,
-        text: "Hello developer 1",
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: "React Native",
-          avatar: botIcon,
-        },
-      },
-      {
-        _id: 4,
-        text: "Hello developer 2",
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: "React Native",
-          avatar: botIcon,
-        },
-      },
-      {
-        _id: 3,
-        text: "Hello world",
-        createdAt: new Date(),
-        user: {
-          _id: 1,
-          name: "User",
-        },
-      },
-      {
-        _id: 1,
-        text: "Hello developer 1",
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: "React Native",
-          avatar: botIcon,
-        },
-      },
-      {
-        _id: 2,
-        text: "Hello developer",
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: "React Native",
-          avatar: botIcon,
-        },
-      },
-    ]);
+    setMessages(MOCKDATA2);
   }, []);
 
   const onSend = useCallback((messages = []) => {
@@ -119,10 +28,10 @@ function Chatbot() {
         {...props}
         wrapperStyle={{
           right: {
-            backgroundColor: COLORS.purple[500],
+            backgroundColor: COLORS.blue[500],
           },
           left: {
-            backgroundColor: COLORS.blue[500],
+            backgroundColor: COLORS.gray[600],
           },
         }}
         textStyle={{
@@ -135,14 +44,33 @@ function Chatbot() {
         }}
         timeTextStyle={{
           right: {
-            color: COLORS.white[200],
+            color: COLORS.white[500],
           },
           left: {
-            color: COLORS.white[200],
+            color: COLORS.white[500],
           },
         }}
       />
     );
+  };
+
+  const renderSend = (props) => {
+    return (
+      <Send {...props}>
+        <View>
+          <MaterialCommunityIcons
+            name="send-circle"
+            size={32}
+            color={COLORS.blue[600]}
+            style={{ marginBottom: 5, marginRight: 5 }}
+          />
+        </View>
+      </Send>
+    );
+  };
+
+  const scrollToBottomComponent = () => {
+    return <FontAwesome name="angle-double-down" size={22} color={"#333"} />;
   };
 
   return (
@@ -154,6 +82,12 @@ function Chatbot() {
           _id: 1,
         }}
         renderBubble={renderBubble}
+        alwaysShowSend={true}
+        renderSend={renderSend}
+        placeholder="Talk to Titi here..."
+        scrollToBottom
+        scrollToBottomComponent={scrollToBottomComponent}
+        bottomOffset={tabBarHeight}
       />
     </View>
   );
@@ -162,6 +96,7 @@ function Chatbot() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // bottom: -80,
   },
 });
 
