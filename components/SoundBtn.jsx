@@ -21,6 +21,8 @@ const styles = StyleSheet.create({
     width: "120%",
     height: 50,
     backgroundColor: COLORS.purple[500],
+    borderWidth: 0.5,
+    borderColor: COLORS.purple[600],
     borderRadius: 10,
     padding: 10,
     margin: 7,

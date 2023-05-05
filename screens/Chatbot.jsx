@@ -87,7 +87,7 @@ function Chatbot() {
         placeholder="Talk to Titi here..."
         scrollToBottom
         scrollToBottomComponent={scrollToBottomComponent}
-        bottomOffset={tabBarHeight}
+        // bottomOffset={tabBarHeight}
       />
     </View>
   );

@@ -99,19 +99,9 @@ function Breathing() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, //
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-  textContainer: {
-    position: "absolute",
-    bottom: 20,
-    width: "100%",
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 12,
-    color: COLORS.blue[600],
   },
 });
 

@@ -64,6 +64,9 @@ function BottomNav() {
               <Image style={{ width: 35, height: 35 }} source={botIcon} />
             </View>
           ),
+          // tabBarStyle: {
+          //   display: "none",
+          // },
         }}
       />
       <Tab.Screen name={ROUTES.SETTINGS} component={Settings} />
