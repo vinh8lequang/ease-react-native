@@ -1,11 +1,11 @@
 import React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, SafeAreaView } from "react-native";
 
 function Settings() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text>Settings</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 

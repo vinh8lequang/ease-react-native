@@ -10,7 +10,7 @@ import {
 import Breathing from "../components/Breathing";
 import SoundBtn from "../components/SoundBtn";
 import SoundGrid from "../components/SoundGrid";
-import { COLORS, MOCKDATA } from "../constants";
+import { COLORS, MOCKDATA, ROUTES } from "../constants";
 import botLoading from "../assets/titi_loading.gif";
 
 function Home({ navigation }) {
@@ -18,33 +18,29 @@ function Home({ navigation }) {
     <SafeAreaView style={styles.container}>
       <View style={styles.containerTop}>
         <View style={styles.containerTextTop}>
-          {/* <Text style={styles.textBreathe}>
-            Breathe-in for 5 seconds, breathe-out for 3 seconds
-          </Text> */}
           <Text style={styles.textBreathe}>
-            Inspirare per 5 secondi, espirare per 3 secondi.
+            Breathe-in for 5 seconds, breathe-out for 3 seconds
           </Text>
         </View>
         <Breathing />
       </View>
-      <TouchableOpacity style={styles.containerMid}>
+      <TouchableOpacity
+        style={styles.containerMid}
+        onPress={() => navigation.navigate(ROUTES.CHATBOT)}
+      >
         <View style={styles.containerTiti}>
           <View style={{ backgroundColor: COLORS.blue[100], borderRadius: 50 }}>
             <Image style={{ width: 60, height: 60 }} source={botLoading} />
           </View>
 
-          {/* <Text style={styles.textTiti}>Have a talk with Titi assistant</Text> */}
-          <Text style={styles.textTiti}>Parlare con l'assistente Titi</Text>
+          <Text style={styles.textTiti}>Have a talk with Titi assistant</Text>
         </View>
       </TouchableOpacity>
       <View style={styles.containerBottom}>
         <View style={styles.containerPlayer}></View>
         <View style={styles.containerMusic}>
           <View style={styles.containerTextBottom}>
-            {/* <Text style={styles.textSelect}>Select a sound to play</Text> */}
-            <Text style={styles.textSelect}>
-              Selezionare un suono da riprodurre
-            </Text>
+            <Text style={styles.textSelect}>Select a sound to play</Text>
           </View>
           <SoundGrid soundsArray={MOCKDATA} />
         </View>
@@ -64,7 +60,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   containerTextTop: {
-    top: 5,
+    top: 25,
   },
   containerMid: {
     flex: 2,
@@ -77,6 +73,7 @@ const styles = StyleSheet.create({
   containerTiti: {
     flex: 1,
     flexDirection: "row",
+    // height: 50,
     width: "100%",
     backgroundColor: COLORS.blue[400],
     borderWidth: 1,
@@ -92,7 +89,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   containerBottom: {
-    flex: 6,
+    flex: 7,
     marginVertical: 5,
     marginHorizontal: 10,
     paddingHorizontal: 10,

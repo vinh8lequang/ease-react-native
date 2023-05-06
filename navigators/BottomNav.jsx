@@ -1,5 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import HomeNavigator from "./HomeNavigator";
 import Home from "../screens/Home";
 import Chatbot from "../screens/Chatbot";
 import Settings from "../screens/Settings";
@@ -18,12 +19,6 @@ function BottomNav() {
         headerShown: false,
         tabBarActiveTintColor: COLORS.blue[600],
         tabBarInactiveTintColor: COLORS.gray[500],
-        tabBarStyle: {
-          // position: "relative",
-          // bottom: -35, //to lower the tab bar
-          // height: 60,
-          // transform: [{ translateY: 30 }],
-        },
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -38,6 +33,7 @@ function BottomNav() {
 
           return <Icon name={iconName} size={25} color={color} />;
         },
+        tabBarHideOnKeyboard: true,
       })}
     >
       <Tab.Screen name={ROUTES.HOME} component={Home} />

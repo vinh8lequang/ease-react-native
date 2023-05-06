@@ -3,14 +3,15 @@ import { StyleSheet, SafeAreaView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import BottomNav from "./navigators/BottomNav";
+import "react-native-gesture-handler";
 
 export default function App() {
   return (
     <NavigationContainer>
       <SafeAreaProvider>
         {/* <SafeAreaView style={styles.container}> */}
+        <StatusBar style="auto" />
         <BottomNav />
-        {/* <StatusBar style="auto" /> */}
         {/* </SafeAreaView> */}
       </SafeAreaProvider>
     </NavigationContainer>

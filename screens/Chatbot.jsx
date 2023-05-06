@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, SafeAreaView } from "react-native";
 import { GiftedChat, Bubble, Send } from "react-native-gifted-chat";
 import { COLORS, MOCKDATA2 } from "../constants";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -74,7 +74,7 @@ function Chatbot() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <GiftedChat
         messages={messages}
         onSend={(messages) => onSend(messages)}
@@ -89,7 +89,7 @@ function Chatbot() {
         scrollToBottomComponent={scrollToBottomComponent}
         // bottomOffset={tabBarHeight}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
