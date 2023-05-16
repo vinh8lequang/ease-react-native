@@ -6,6 +6,8 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
+  Platform,
+  StatusBar,
 } from "react-native";
 import Breathing from "../components/Breathing";
 import SoundBtn from "../components/SoundBtn";
@@ -24,7 +26,7 @@ function Home({ navigation }) {
         </View>
         <Breathing />
       </View>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.containerMid}
         onPress={() => navigation.navigate(ROUTES.CHATBOT)}
       >
@@ -35,7 +37,7 @@ function Home({ navigation }) {
 
           <Text style={styles.textTiti}>Have a talk with Titi assistant</Text>
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <View style={styles.containerBottom}>
         <View style={styles.containerPlayer}></View>
         <View style={styles.containerMusic}>
@@ -55,12 +57,13 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white[500],
   },
   containerTop: {
-    flex: 7,
+    flex: 1,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     alignItems: "center",
     justifyContent: "space-between",
   },
   containerTextTop: {
-    top: 25,
+    top: 10,
   },
   containerMid: {
     flex: 2,
@@ -89,7 +92,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   containerBottom: {
-    flex: 7,
+    flex: 1,
     marginVertical: 5,
     marginHorizontal: 10,
     paddingHorizontal: 10,
